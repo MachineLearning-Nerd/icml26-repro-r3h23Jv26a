@@ -1,0 +1,9 @@
+.venv/
+.trackio/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.env
+upstream/
+upstream/ordinary_regression_task/ablation_study_simulation_p.csv
+outputs/quick_*.json
