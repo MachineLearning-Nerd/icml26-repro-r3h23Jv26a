@@ -32,6 +32,11 @@ Publish to `DineshAI/r3h23Jv26a` only after the daily Hugging Face Space quota
 resets, then verify public tags and artifacts and change the coordination entry
 to `under_verdict`.
 
+## Public code
+
+https://github.com/MachineLearning-Nerd/icml26-repro-r3h23Jv26a (commit
+`3ae4ecd`)
+
 ## Scope
 
 All three live challenge claims are evaluated on the full released synthetic
