@@ -2,7 +2,8 @@
 
 ## Current step
 
-`publication_queued` — full reproduction and publication gate complete.
+`publication_queued` — full reproduction and publication gate re-run on
+2026-07-18; Hugging Face Space creation is quota-blocked.
 
 ## Verified results
 
@@ -29,8 +30,10 @@ are not claimed as rerun evidence.
 ## Next action
 
 Publish to `DineshAI/r3h23Jv26a` only after the daily Hugging Face Space quota
-resets, then verify public tags and artifacts and change the coordination entry
-to `under_verdict`.
+resets. The 2026-07-18 publish attempt re-uploaded the declared local artifact
+but received HTTP 429 at Space creation, with an estimated retry window of about
+15 hours. After a successful create, verify public tags and artifacts and change
+the coordination entry to `under_verdict`.
 
 ## Public code
 
