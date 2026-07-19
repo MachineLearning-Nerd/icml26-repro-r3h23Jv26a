@@ -3,7 +3,7 @@
 ## Current step
 
 `publication_queued` — full reproduction and publication gate re-run on
-2026-07-18; Hugging Face Space creation is quota-blocked.
+2026-07-19; Hugging Face Space creation is quota-blocked.
 
 ## Verified results
 
@@ -30,10 +30,14 @@ are not claimed as rerun evidence.
 ## Next action
 
 Publish to `DineshAI/r3h23Jv26a` only after the daily Hugging Face Space quota
-resets. The 2026-07-18 publish attempt re-uploaded the declared local artifact
-but received HTTP 429 at Space creation, with an estimated retry window of about
-15 hours. After a successful create, verify public tags and artifacts and change
-the coordination entry to `under_verdict`.
+resets. The fresh 2026-07-19 pre-publish gate passed again (six tests,
+independent three-claim raw verifier, source pin, tags/artifact-path check, and
+secret scan), and Trackio re-uploaded the declared local artifact. Space
+creation then received HTTP 429; the provider's authoritative response at
+12:23 IST says retry in about 20 hours because the account-wide 20-Spaces/day
+quota is exhausted. Do not retry before that external window changes. After a
+successful create, verify public tags and artifacts and change the coordination
+entry to `under_verdict`.
 
 ## Public code
 
