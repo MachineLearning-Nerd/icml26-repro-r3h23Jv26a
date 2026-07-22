@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "title": "Repro - PT-Conformal Metric",
+  "emoji": "🎯",
+  "space_id": "DineshAI/r3h23Jv26a",
+  "paper": null,
+  "tags": [
+    "icml2026-repro",
+    "paper-r3h23Jv26a"
+  ],
+  "updated_at": "2026-07-22T14:12:42Z",
+  "root": {
+    "slug": "index",
+    "title": "Repro - PT-Conformal Metric",
+    "file": "pages/index.md",
+    "children": [
+      {
+        "slug": "claim-1",
+        "title": "Claim 1",
+        "file": "pages/claim-1/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-2",
+        "title": "Claim 2",
+        "file": "pages/claim-2/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-3",
+        "title": "Claim 3",
+        "file": "pages/claim-3/page.md",
+        "children": []
+      },
+      {
+        "slug": "methods-source-audit",
+        "title": "Methods & source audit",
+        "file": "pages/methods-source-audit/page.md",
+        "children": []
+      },
+      {
+        "slug": "negative-controls",
+        "title": "Negative controls",
+        "file": "pages/negative-controls/page.md",
+        "children": []
+      },
+      {
+        "slug": "conclusion",
+        "title": "Conclusion",
+        "file": "pages/conclusion/page.md",
+        "children": []
+      },
+      {
+        "slug": "overview",
+        "title": "Overview",
+        "file": "pages/overview/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-3-pt-deceptive-length",
+        "title": "Claim 3 — PT length",
+        "file": "pages/claim-3-pt-deceptive-length/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-4-interval-stability",
+        "title": "Claim 4 — stability metric",
+        "file": "pages/claim-4-interval-stability/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-5-localized-equivalence",
+        "title": "Claim 5 — localized CP/PT equivalence",
+        "file": "pages/claim-5-localized-equivalence/page.md",
+        "children": []
+      }
+    ]
+  },
+  "agent_view_tokens": 3000,
+  "revision": "1784729572458857000"
+}
