@@ -24,6 +24,7 @@ OUTPUT = ROOT / "outputs" / "suite_report.json"
 VERIFIERS: list[tuple[str, str]] = [
     ("claim_1_2_4_synthetic", "repro.src.claims_synthetic:main"),
     ("claim_5_localized_cp", "repro.src.claim5_localized_cp:main"),
+    ("claim_3_real_world", "repro.src.claim3_real_world:main"),
 ]
 
 
