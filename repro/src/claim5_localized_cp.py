@@ -32,6 +32,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import os
 import random
 from pathlib import Path
 
@@ -39,6 +40,8 @@ import numpy as np
 import torch
 import torch.nn as nn
 from sklearn.linear_model import LinearRegression
+
+torch.set_num_threads(max(1, os.cpu_count() or 8))
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = ROOT / "outputs" / "claim5_localized_cp.json"
@@ -155,7 +158,7 @@ def prop1_extreme_case(seed: int = 7, p: float = P, alpha: float = ALPHA, n_mc: 
     }
 
 
-def realistic_localizer(seed_base: int = 11, n_retrains: int = 30):
+def realistic_localizer(seed_base: int = 11, n_retrains: int = 20):
     xtr, ytr, xte, yte, idx_tr, idx_cal = _make_data(seed_base)
     mu = LinearRegression(fit_intercept=True).fit(xtr[idx_tr], ytr[idx_tr])
     mu_hat = lambda x: mu.predict(x)

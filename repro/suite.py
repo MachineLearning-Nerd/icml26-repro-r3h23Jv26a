@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import platform
 import subprocess
 import sys
@@ -39,7 +40,9 @@ def _git_sha() -> str:
 
 def _run(entry: str) -> dict:
     module, _, func = entry.partition(":")
-    code = subprocess.call([sys.executable, "-m", module])
+    env = os.environ.copy()
+    env["PYTHONUNBUFFERED"] = "1"
+    code = subprocess.call([sys.executable, "-u", "-m", module], env=env)
     return {"entry": entry, "exit_code": code, "pass": code == 0}
 
 

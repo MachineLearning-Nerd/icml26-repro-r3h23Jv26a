@@ -23,6 +23,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import os
 import random
 from pathlib import Path
 
@@ -40,7 +41,10 @@ OUTPUT = ROOT / "outputs" / "claim3_real_world.json"
 ALPHA = 0.10
 P = 0.95
 N_SEEDS = 5
-MAX_EPOCHS = 120  # paper cap 1000 with early stopping; reduced for CPU feasibility (documented deviation)
+MAX_EPOCHS = 50  # paper cap 1000 with early stopping; reduced for CPU feasibility
+MAX_ROWS = 10_000  # cap very large datasets for CPU feasibility (documented deviation)
+
+torch.set_num_threads(max(1, os.cpu_count() or 8))
 
 
 class MLP(nn.Module):
@@ -91,6 +95,10 @@ def conformal_quantile(res, alpha):
 
 
 def run_dataset(name, X, y, bias, rng_seed_base=0):
+    if X.shape[0] > MAX_ROWS:
+        rng = np.random.RandomState(0)
+        keep = rng.choice(X.shape[0], MAX_ROWS, replace=False)
+        X, y = X[keep], y[keep]
     results = []
     for s in range(N_SEEDS):
         seed = rng_seed_base + s
@@ -148,6 +156,8 @@ def main() -> int:
             continue
         agg = run_dataset(name, info["X"], info["y"], info["bias"])
         agg["in_paper_table2"] = info["in_paper_table2"]
+        agg["n_rows_used"] = int(info["X"].shape[0]) if info["X"].shape[0] <= MAX_ROWS else MAX_ROWS
+        agg["n_rows_original"] = int(info["X"].shape[0])
         if name in PAPER_TABLE2:
             agg["paper_table2"] = PAPER_TABLE2[name]
         table.append(agg)
