@@ -42,6 +42,10 @@ uv run python -m repro.src.claim3_real_world   # writes outputs/claim3_real_worl
 Source: `repro/src/claim3_real_world.py`. Datasets: `repro/src/real_datasets.py`.
 results_sha256: `55b6e29e2947…` (HF run). Git SHA: `272093b`.
 
+**Negative control:** VCP (no PT) is the longer-length baseline every dataset is
+compared against; `p=1` recovers VCP exactly. Coverage is held at ~0.90 in every
+case, confirming the length gap is the PT effect, not a coverage violation.
+
 ### Deviations (honest)
 - **Datasets not obtained:** MEPS-19/20/21, BLOG-DATA, FACEBOOK-1/2 were not
   reliably servable from public sources (UCI static + API + OpenML all failed) and
