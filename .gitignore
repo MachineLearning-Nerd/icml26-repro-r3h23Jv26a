@@ -4,6 +4,7 @@ __pycache__/
 .pytest_cache/
 *.py[cod]
 .env
-upstream/
-upstream/ordinary_regression_task/ablation_study_simulation_p.csv
+/upstream/
+/reference/upstream/pt_result/
+/reference/upstream/ablation_study_result/
 outputs/quick_*.json

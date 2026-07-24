@@ -56,13 +56,21 @@ class SyntheticData:
     idx_calibration: np.ndarray
 
 
-def make_source_data(seed: int) -> SyntheticData:
-    """Recreate one source seed using NumPy's legacy global-RNG semantics."""
+def make_source_data(seed: int, bias: float | None = None) -> SyntheticData:
+    """Recreate one source seed using NumPy's legacy global-RNG semantics.
+
+    ``bias`` is the Gaussian-mixture noise mean (the paper's :math:`\\mu`).
+    The committed author script ``simulation_subgaussian.py`` hard-codes
+    ``bias = 20``; the paper's Table 1 was generated with ``bias = 10`` (see
+    ``docs/source_audit.md`` and ``reference/upstream/table1_source_bias10.csv``).
+    """
+    if bias is None:
+        bias = BIAS
     rng = np.random.RandomState(seed)
     x1 = rng.normal(0.0, 1.0, (N, 1))
     x2 = rng.normal(0.0, 1.0, (N, 1))
-    eps_pos = rng.normal(BIAS, 1.0, (N // 2, 1))
-    eps_neg = rng.normal(-BIAS, 1.0, (N // 2, 1))
+    eps_pos = rng.normal(bias, 1.0, (N // 2, 1))
+    eps_neg = rng.normal(-bias, 1.0, (N // 2, 1))
     eps = np.vstack((eps_pos, eps_neg))
     rng.shuffle(eps)
     rng.shuffle(x1)
@@ -130,9 +138,9 @@ def source_condition(
     }
 
 
-def source_seed_rows(seed: int) -> list[dict[str, float | int]]:
+def source_seed_rows(seed: int, bias: float | None = None) -> list[dict[str, float | int]]:
     """Run all 20 author Table-1 conditions for one seed, in source order."""
-    data = make_source_data(seed)
+    data = make_source_data(seed, bias=bias)
     calibration_residuals, test_residuals = fit_source_model(data)
     python_rng = random.Random(seed)
     rows: list[dict[str, float | int]] = []

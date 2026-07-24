@@ -1,3 +1,28 @@
+[project]
+name = "icml26-repro-r3h23jv26a"
+version = "0.1.0"
+description = "Reproduction of arXiv:2601.21455 (Questioning the Coverage-Length Metric in Conformal Prediction)."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy==2.5.1",
+    "scikit-learn==1.9.0",
+    "scipy>=1.13",
+    "pandas>=2.2",
+    "matplotlib>=3.8",
+    "torch>=2.4",
+    "pytest==9.1.1",
+]
+
+[tool.uv]
+# Prefer CPU-only torch wheels so the environment stays GPU-free and portable.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["repro/tests"]
