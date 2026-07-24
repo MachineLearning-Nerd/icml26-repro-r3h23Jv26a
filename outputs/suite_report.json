@@ -1,0 +1,26 @@
+{
+  "all_pass": true,
+  "duration_seconds": 179.73,
+  "git_sha": "54a9231852bb08f79df558ae4e4362009bf512bd",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.12.11",
+  "results_sha256": "e666715ba1c86449023eea7acd21b8fd09a7d5f7cbe7edbedddb3f3b1909d7b4",
+  "run_command": "uv run python -m repro.suite",
+  "verifiers": {
+    "claim_1_2_4_synthetic": {
+      "entry": "repro.src.claims_synthetic:main",
+      "exit_code": 0,
+      "pass": true
+    },
+    "claim_3_real_world": {
+      "entry": "repro.src.claim3_real_world:main",
+      "exit_code": 0,
+      "pass": true
+    },
+    "claim_5_localized_cp": {
+      "entry": "repro.src.claim5_localized_cp:main",
+      "exit_code": 0,
+      "pass": true
+    }
+  }
+}

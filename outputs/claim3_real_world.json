@@ -1,0 +1,404 @@
+{
+  "claim": "3: PT-VCP reduces interval length in 9 of 10 datasets while maintaining 90% marginal coverage (Table 2).",
+  "coverage_all_within_0.06": true,
+  "datasets_failed": {
+    "seoulbike": "failed: ValueError: could not convert string to float: '1/12/2017'"
+  },
+  "datasets_run": [
+    "concrete",
+    "bio",
+    "bike",
+    "airfoil",
+    "energy",
+    "wine",
+    "realestate"
+  ],
+  "n_datasets": 7,
+  "n_paper_datasets": 3,
+  "n_pt_shorter": 7,
+  "paper_datasets_shorter": 3,
+  "pass": true,
+  "protocol": {
+    "alpha": 0.1,
+    "deviation": "max_epochs capped at 120 (paper 1000) with early stopping for CPU feasibility; MEPS/BLOG/FACEBOOK datasets not reliably obtainable from public sources.",
+    "max_epochs": 200,
+    "n_seeds": 5,
+    "p": 0.95
+  },
+  "results": [
+    {
+      "bias": 5,
+      "dataset": "concrete",
+      "in_paper_table2": true,
+      "n_rows_original": 1030,
+      "n_rows_used": 1030,
+      "paper_table2": {
+        "bias": 5,
+        "pt_vcp": 9.87,
+        "vcp": 10.32
+      },
+      "pt_shorter": true,
+      "pt_vcp_coverage": 0.8980582524271845,
+      "pt_vcp_length": 10.198342407784924,
+      "pt_vcp_length_se": 0.08137107265408125,
+      "runs": [
+        {
+          "pt_vcp_cov": 0.9271844660194175,
+          "pt_vcp_len": 10.482949919675908,
+          "seed": 0,
+          "vcp_cov": 0.9174757281553398,
+          "vcp_len": 10.587365889606525
+        },
+        {
+          "pt_vcp_cov": 0.8737864077669902,
+          "pt_vcp_len": 10.068413339674652,
+          "seed": 1,
+          "vcp_cov": 0.8883495145631068,
+          "vcp_len": 10.516520254842703
+        },
+        {
+          "pt_vcp_cov": 0.8932038834951457,
+          "pt_vcp_len": 10.183351515528248,
+          "seed": 2,
+          "vcp_cov": 0.8689320388349514,
+          "vcp_len": 10.434113197598135
+        },
+        {
+          "pt_vcp_cov": 0.912621359223301,
+          "pt_vcp_len": 10.298303306842353,
+          "seed": 3,
+          "vcp_cov": 0.8980582524271845,
+          "vcp_len": 10.468828834013953
+        },
+        {
+          "pt_vcp_cov": 0.883495145631068,
+          "pt_vcp_len": 9.958693957203467,
+          "seed": 4,
+          "vcp_cov": 0.883495145631068,
+          "vcp_len": 10.537465978152115
+        }
+      ],
+      "vcp_coverage": 0.8912621359223302,
+      "vcp_length": 10.508858830842687,
+      "vcp_length_se": 0.023857690505057365
+    },
+    {
+      "bias": 10,
+      "dataset": "bio",
+      "in_paper_table2": true,
+      "n_rows_original": 45730,
+      "n_rows_used": 10000,
+      "paper_table2": {
+        "bias": 10,
+        "pt_vcp": 20.44,
+        "vcp": 21.13
+      },
+      "pt_shorter": true,
+      "pt_vcp_coverage": 0.9046999999999998,
+      "pt_vcp_length": 20.702122766282162,
+      "pt_vcp_length_se": 0.053900948124379955,
+      "runs": [
+        {
+          "pt_vcp_cov": 0.9035,
+          "pt_vcp_len": 20.734148318502864,
+          "seed": 0,
+          "vcp_cov": 0.9005,
+          "vcp_len": 21.400830558423767
+        },
+        {
+          "pt_vcp_cov": 0.908,
+          "pt_vcp_len": 20.790532365330147,
+          "seed": 1,
+          "vcp_cov": 0.908,
+          "vcp_len": 21.473703664589557
+        },
+        {
+          "pt_vcp_cov": 0.9115,
+          "pt_vcp_len": 20.860162723174305,
+          "seed": 2,
+          "vcp_cov": 0.902,
+          "vcp_len": 21.448698572647412
+        },
+        {
+          "pt_vcp_cov": 0.9075,
+          "pt_vcp_len": 20.558407985842337,
+          "seed": 3,
+          "vcp_cov": 0.9055,
+          "vcp_len": 21.38578203362274
+        },
+        {
+          "pt_vcp_cov": 0.893,
+          "pt_vcp_len": 20.567362438561155,
+          "seed": 4,
+          "vcp_cov": 0.9015,
+          "vcp_len": 21.411514176082534
+        }
+      ],
+      "vcp_coverage": 0.9035,
+      "vcp_length": 21.424105801073203,
+      "vcp_length_se": 0.014468931641252786
+    },
+    {
+      "bias": 10,
+      "dataset": "bike",
+      "in_paper_table2": true,
+      "n_rows_original": 17379,
+      "n_rows_used": 10000,
+      "paper_table2": {
+        "bias": 10,
+        "pt_vcp": 19.59,
+        "vcp": 20.46
+      },
+      "pt_shorter": true,
+      "pt_vcp_coverage": 0.9012,
+      "pt_vcp_length": 20.10625905165171,
+      "pt_vcp_length_se": 0.03403860462000125,
+      "runs": [
+        {
+          "pt_vcp_cov": 0.9075,
+          "pt_vcp_len": 20.120365960250442,
+          "seed": 0,
+          "vcp_cov": 0.9065,
+          "vcp_len": 20.79124903722937
+        },
+        {
+          "pt_vcp_cov": 0.89,
+          "pt_vcp_len": 20.101311156251832,
+          "seed": 1,
+          "vcp_cov": 0.8855,
+          "vcp_len": 20.775939684620656
+        },
+        {
+          "pt_vcp_cov": 0.908,
+          "pt_vcp_len": 20.24113617030794,
+          "seed": 2,
+          "vcp_cov": 0.8995,
+          "vcp_len": 20.81037773613813
+        },
+        {
+          "pt_vcp_cov": 0.902,
+          "pt_vcp_len": 20.043652090758158,
+          "seed": 3,
+          "vcp_cov": 0.9095,
+          "vcp_len": 20.839181382135003
+        },
+        {
+          "pt_vcp_cov": 0.8985,
+          "pt_vcp_len": 20.024829880690163,
+          "seed": 4,
+          "vcp_cov": 0.899,
+          "vcp_len": 20.87872596830965
+        }
+      ],
+      "vcp_coverage": 0.9,
+      "vcp_length": 20.819094761686564,
+      "vcp_length_se": 0.016337790188256308
+    },
+    {
+      "bias": 10,
+      "dataset": "airfoil",
+      "in_paper_table2": false,
+      "n_rows_original": 1503,
+      "n_rows_used": 1503,
+      "pt_shorter": true,
+      "pt_vcp_coverage": 0.9003322259136212,
+      "pt_vcp_length": 19.149814291094597,
+      "pt_vcp_length_se": 0.12425830184543558,
+      "runs": [
+        {
+          "pt_vcp_cov": 0.9069767441860465,
+          "pt_vcp_len": 19.629195074755724,
+          "seed": 0,
+          "vcp_cov": 0.9036544850498339,
+          "vcp_len": 20.080178779917635
+        },
+        {
+          "pt_vcp_cov": 0.893687707641196,
+          "pt_vcp_len": 19.10745104530938,
+          "seed": 1,
+          "vcp_cov": 0.8870431893687708,
+          "vcp_len": 20.0828026762149
+        },
+        {
+          "pt_vcp_cov": 0.8970099667774086,
+          "pt_vcp_len": 19.095060739516317,
+          "seed": 2,
+          "vcp_cov": 0.8903654485049833,
+          "vcp_len": 20.07425926170467
+        },
+        {
+          "pt_vcp_cov": 0.9235880398671097,
+          "pt_vcp_len": 19.15659860611702,
+          "seed": 3,
+          "vcp_cov": 0.9102990033222591,
+          "vcp_len": 20.073102796836324
+        },
+        {
+          "pt_vcp_cov": 0.8803986710963455,
+          "pt_vcp_len": 18.760765989774555,
+          "seed": 4,
+          "vcp_cov": 0.9003322259136213,
+          "vcp_len": 20.072731142516787
+        }
+      ],
+      "vcp_coverage": 0.8983388704318938,
+      "vcp_length": 20.076614931438062,
+      "vcp_length_se": 0.0018325641832930574
+    },
+    {
+      "bias": 10,
+      "dataset": "energy",
+      "in_paper_table2": false,
+      "n_rows_original": 768,
+      "n_rows_used": 768,
+      "pt_shorter": true,
+      "pt_vcp_coverage": 0.8922077922077921,
+      "pt_vcp_length": 19.42362635296249,
+      "pt_vcp_length_se": 0.20244826080085185,
+      "runs": [
+        {
+          "pt_vcp_cov": 0.9155844155844156,
+          "pt_vcp_len": 19.903541557076377,
+          "seed": 0,
+          "vcp_cov": 0.8896103896103896,
+          "vcp_len": 20.30232504993194
+        },
+        {
+          "pt_vcp_cov": 0.8766233766233766,
+          "pt_vcp_len": 19.17642547748688,
+          "seed": 1,
+          "vcp_cov": 0.8636363636363636,
+          "vcp_len": 20.270209955661624
+        },
+        {
+          "pt_vcp_cov": 0.8896103896103896,
+          "pt_vcp_len": 19.648066050289824,
+          "seed": 2,
+          "vcp_cov": 0.8701298701298701,
+          "vcp_len": 20.34412393214785
+        },
+        {
+          "pt_vcp_cov": 0.9090909090909091,
+          "pt_vcp_len": 19.732793471557144,
+          "seed": 3,
+          "vcp_cov": 0.9090909090909091,
+          "vcp_len": 20.40483484875681
+        },
+        {
+          "pt_vcp_cov": 0.8701298701298701,
+          "pt_vcp_len": 18.657305208402224,
+          "seed": 4,
+          "vcp_cov": 0.9090909090909091,
+          "vcp_len": 20.241905211977368
+        }
+      ],
+      "vcp_coverage": 0.8883116883116884,
+      "vcp_length": 20.31267979969512,
+      "vcp_length_se": 0.025613463096404967
+    },
+    {
+      "bias": 10,
+      "dataset": "wine",
+      "in_paper_table2": false,
+      "n_rows_original": 6497,
+      "n_rows_used": 6497,
+      "pt_shorter": true,
+      "pt_vcp_coverage": 0.898,
+      "pt_vcp_length": 19.441379347099165,
+      "pt_vcp_length_se": 0.06199477506230392,
+      "runs": [
+        {
+          "pt_vcp_cov": 0.8884615384615384,
+          "pt_vcp_len": 19.484083029088303,
+          "seed": 0,
+          "vcp_cov": 0.8792307692307693,
+          "vcp_len": 20.29461233665993
+        },
+        {
+          "pt_vcp_cov": 0.8984615384615384,
+          "pt_vcp_len": 19.520190169183614,
+          "seed": 1,
+          "vcp_cov": 0.89,
+          "vcp_len": 20.308029917373993
+        },
+        {
+          "pt_vcp_cov": 0.916923076923077,
+          "pt_vcp_len": 19.631517735152,
+          "seed": 2,
+          "vcp_cov": 0.9092307692307692,
+          "vcp_len": 20.313408002031995
+        },
+        {
+          "pt_vcp_cov": 0.8946153846153846,
+          "pt_vcp_len": 19.326373753831298,
+          "seed": 3,
+          "vcp_cov": 0.9076923076923077,
+          "vcp_len": 20.317826710099162
+        },
+        {
+          "pt_vcp_cov": 0.8915384615384615,
+          "pt_vcp_len": 19.24473204824062,
+          "seed": 4,
+          "vcp_cov": 0.9053846153846153,
+          "vcp_len": 20.302241518035895
+        }
+      ],
+      "vcp_coverage": 0.8983076923076923,
+      "vcp_length": 20.307223696840193,
+      "vcp_length_se": 0.00366162818242721
+    },
+    {
+      "bias": 10,
+      "dataset": "realestate",
+      "in_paper_table2": false,
+      "n_rows_original": 414,
+      "n_rows_used": 414,
+      "pt_shorter": true,
+      "pt_vcp_coverage": 0.9036144578313253,
+      "pt_vcp_length": 19.48122486324332,
+      "pt_vcp_length_se": 0.2720259983801734,
+      "runs": [
+        {
+          "pt_vcp_cov": 0.9759036144578314,
+          "pt_vcp_len": 20.577080688343994,
+          "seed": 0,
+          "vcp_cov": 0.9397590361445783,
+          "vcp_len": 20.720699423067607
+        },
+        {
+          "pt_vcp_cov": 0.891566265060241,
+          "pt_vcp_len": 19.210565403396608,
+          "seed": 1,
+          "vcp_cov": 0.9156626506024096,
+          "vcp_len": 20.541179446788796
+        },
+        {
+          "pt_vcp_cov": 0.891566265060241,
+          "pt_vcp_len": 19.37742034495931,
+          "seed": 2,
+          "vcp_cov": 0.8795180722891566,
+          "vcp_len": 20.526092900354143
+        },
+        {
+          "pt_vcp_cov": 0.9156626506024096,
+          "pt_vcp_len": 19.510925267739996,
+          "seed": 3,
+          "vcp_cov": 0.963855421686747,
+          "vcp_len": 20.463306168829675
+        },
+        {
+          "pt_vcp_cov": 0.8433734939759037,
+          "pt_vcp_len": 18.730132611776686,
+          "seed": 4,
+          "vcp_cov": 0.891566265060241,
+          "vcp_len": 20.3631467977799
+        }
+      ],
+      "vcp_coverage": 0.9180722891566265,
+      "vcp_length": 20.522884947364027,
+      "vcp_length_se": 0.052360845582812336
+    }
+  ],
+  "results_sha256": "e0be82ed0880acde95bec64753775597d33e904753f6d501f85866b9471061d1",
+  "source": "arXiv:2601.21455 Sec 3.4 Table 2, Appendix D.2"
+}
