@@ -23,6 +23,7 @@ OUTPUT = ROOT / "outputs" / "suite_report.json"
 # Each entry: (label, module-callable). Children append their own verifiers.
 VERIFIERS: list[tuple[str, str]] = [
     ("claim_1_2_4_synthetic", "repro.src.claims_synthetic:main"),
+    ("claim_5_localized_cp", "repro.src.claim5_localized_cp:main"),
 ]
 
 

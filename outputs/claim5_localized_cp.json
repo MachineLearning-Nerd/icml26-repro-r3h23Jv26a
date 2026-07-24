@@ -1,0 +1,85 @@
+{
+  "claim": "5: The Interval-Stability metric flags localized CP that exploits PT-like randomness (Proposition 1: PT is a special case of localized CP when sigma_hat outputs extreme values).",
+  "pass": true,
+  "prop1_extreme_case": {
+    "alpha": 0.1,
+    "analytic_is_proposition2": 24.896423710000022,
+    "bernoulli_population_variance": 24.896423709950227,
+    "empirical_is": 24.483265920560964,
+    "informative_length": 22.894,
+    "minimal_length": 2.2893999999999997e-11,
+    "n_monte_carlo": 200000,
+    "p": 0.95,
+    "pass": true,
+    "relative_error_vs_prop2": 0.016595065791441647,
+    "two_branches_present": true
+  },
+  "realistic_trained_localizer": {
+    "all_cherrypick_deceptive": true,
+    "all_is_positive": true,
+    "is_localized_cp_mean": 0.03497016070385236,
+    "is_localized_cp_min": 0.03303855480579038,
+    "is_vcp": 0.0,
+    "mean_localized_coverage": 0.9091944444444445,
+    "runs": [
+      {
+        "alpha": 0.1,
+        "bias": 10.0,
+        "cherrypick_min_retrain_length": 23.348195452690124,
+        "deceptive_shrink_vs_vcp": true,
+        "frac_points_with_positive_variance": 1.0,
+        "is_localized_cp": 0.033169610267844846,
+        "is_vcp": 0.0,
+        "localized_coverage": 0.9472500000000001,
+        "mean_localized_length": 23.444017345269522,
+        "mean_vcp_length": 23.42990553510356,
+        "n_retrains": 30,
+        "n_test": 400,
+        "p": 0.95,
+        "pass": true,
+        "vcp_coverage": 0.9525
+      },
+      {
+        "alpha": 0.1,
+        "bias": 10.0,
+        "cherrypick_min_retrain_length": 22.841444272994995,
+        "deceptive_shrink_vs_vcp": true,
+        "frac_points_with_positive_variance": 1.0,
+        "is_localized_cp": 0.03870231703792185,
+        "is_vcp": 0.0,
+        "localized_coverage": 0.8940833333333332,
+        "mean_localized_length": 22.906196273644767,
+        "mean_vcp_length": 22.89668421088408,
+        "n_retrains": 30,
+        "n_test": 400,
+        "p": 0.95,
+        "pass": true,
+        "vcp_coverage": 0.8925
+      },
+      {
+        "alpha": 0.1,
+        "bias": 10.0,
+        "cherrypick_min_retrain_length": 23.13643096446991,
+        "deceptive_shrink_vs_vcp": true,
+        "frac_points_with_positive_variance": 1.0,
+        "is_localized_cp": 0.03303855480579038,
+        "is_vcp": 0.0,
+        "localized_coverage": 0.8862500000000001,
+        "mean_localized_length": 23.233578278859458,
+        "mean_vcp_length": 23.18173631156362,
+        "n_retrains": 30,
+        "n_test": 400,
+        "p": 0.95,
+        "pass": true,
+        "vcp_coverage": 0.8775
+      }
+    ],
+    "seeds": [
+      11,
+      22,
+      33
+    ]
+  },
+  "results_sha256": "637f7f802f23748b060989d17300b03de673e7b91fbc7882965d038260249dba",
+  "source": "arXiv:2601.21455 Sec 3.2 Prop 1 (Eq 4), Sec 4 Def 1 (Eq 15), Prop 2 (Eq 16), Remark 3"
+}
