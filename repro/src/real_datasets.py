@@ -48,7 +48,10 @@ def _from_ucimlrepo(dataset_id: int) -> tuple[np.ndarray, np.ndarray]:
     from ucimlrepo import fetch_ucirepo
     d = fetch_ucirepo(id=dataset_id)
     X = np.asarray(d.data.features, dtype=float)
-    y = np.asarray(d.data.targets, dtype=float).reshape(-1)
+    y = np.asarray(d.data.targets, dtype=float)
+    if y.ndim > 1 and y.shape[1] > 1:
+        y = y[:, 0]  # take first target (regression; e.g. energy heating load)
+    y = y.reshape(-1)
     return X, y
 
 
@@ -109,10 +112,7 @@ def load_airfoil() -> tuple[np.ndarray, np.ndarray]:
 
 
 def load_energy() -> tuple[np.ndarray, np.ndarray]:
-    X, y = _from_ucimlrepo(242)
-    if y.ndim > 1 and y.shape[1] > 1:
-        y = y[:, 0]  # heating load (first target)
-    return X, y
+    return _from_ucimlrepo(242)  # first target (heating load) handled in _from_ucimlrepo
 
 
 def load_wine() -> tuple[np.ndarray, np.ndarray]:

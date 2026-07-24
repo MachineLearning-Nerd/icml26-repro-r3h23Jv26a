@@ -98,7 +98,7 @@ class ScaleMLP(nn.Module):
         return out + 1e-3               # keep strictly positive
 
 
-def fit_sigma(x_fit, r_fit, in_dim: int, seed: int, epochs: int = 120):
+def fit_sigma(x_fit, r_fit, in_dim: int, seed: int, epochs: int = 60):
     model = ScaleMLP(in_dim, 32, seed)
     opt = torch.optim.Adam(model.parameters(), lr=5e-3)
     xt = torch.from_numpy(x_fit).float(); rt = torch.from_numpy(r_fit.reshape(-1, 1)).float()
@@ -205,7 +205,7 @@ def main() -> int:
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     extreme = prop1_extreme_case()
     # average the realistic case over a few data seeds for stability
-    realistic_runs = [realistic_localizer(seed_base=s) for s in (11, 22, 33)]
+    realistic_runs = [realistic_localizer(seed_base=s, n_retrains=12) for s in (11, 22, 33)]
     realistic_agg = {
         "seeds": [11, 22, 33],
         "is_localized_cp_mean": float(np.mean([r["is_localized_cp"] for r in realistic_runs])),

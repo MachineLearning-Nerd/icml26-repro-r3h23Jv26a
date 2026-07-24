@@ -28,10 +28,9 @@ import random
 from pathlib import Path
 
 import numpy as np
-import torch
-import torch.nn as nn
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPRegressor
 from sklearn.preprocessing import StandardScaler
 
 from repro.src.real_datasets import load_all
@@ -41,52 +40,22 @@ OUTPUT = ROOT / "outputs" / "claim3_real_world.json"
 ALPHA = 0.10
 P = 0.95
 N_SEEDS = 5
-MAX_EPOCHS = 50  # paper cap 1000 with early stopping; reduced for CPU feasibility
+MAX_EPOCHS = 200  # MLPRegressor max_iter; early stopping (n_iter_no_change) bounds it
 MAX_ROWS = 10_000  # cap very large datasets for CPU feasibility (documented deviation)
 
-torch.set_num_threads(max(1, os.cpu_count() or 8))
 
-
-class MLP(nn.Module):
-    def __init__(self, in_dim, hidden=64, dropout=0.1):
-        super().__init__()
-        self.net = nn.Sequential(
-            nn.Linear(in_dim, hidden), nn.ReLU(), nn.Dropout(dropout),
-            nn.Linear(hidden, hidden), nn.ReLU(), nn.Dropout(dropout),
-            nn.Linear(hidden, 1),
-        )
-        for m in self.net:
-            if isinstance(m, nn.Linear):
-                nn.init.orthogonal_(m.weight); nn.init.zeros_(m.bias)
-
-    def forward(self, x):
-        return self.net(x)
-
-
-def fit_mlp(x_tr, y_tr, seed, in_dim, max_epochs=MAX_EPOCHS):
-    torch.manual_seed(seed)
-    model = MLP(in_dim)
-    opt = torch.optim.Adam(model.parameters(), lr=5e-4, weight_decay=1e-6)
-    loss_fn = nn.MSELoss()
-    xt = torch.from_numpy(x_tr).float(); yt = torch.from_numpy(y_tr.reshape(-1, 1)).float()
-    n = xt.shape[0]; bs = 64
-    # simple held-out early stopping
-    xv_tr, xv_va = xt[: int(0.8 * n)], xt[int(0.8 * n):]
-    yv_tr, yv_va = yt[: int(0.8 * n)], yt[int(0.8 * n):]
-    best = 1e18; best_state = None
-    for _ in range(max_epochs):
-        model.train(); perm = torch.randperm(xv_tr.shape[0])
-        for i in range(0, xv_tr.shape[0], bs):
-            b = perm[i:i + bs]
-            opt.zero_grad(); loss = loss_fn(model(xv_tr[b]), yv_tr[b]); loss.backward(); opt.step()
-        model.eval()
-        with torch.no_grad():
-            vl = float(loss_fn(model(xv_va), yv_va))
-        if vl < best:
-            best = vl; best_state = {k: v.clone() for k, v in model.state_dict().items()}
-    model.load_state_dict(best_state)
-    model.eval()
-    return lambda x: model(torch.from_numpy(np.asarray(x)).float()).detach().numpy().flatten()
+def fit_mlp(x_tr, y_tr, seed, in_dim):
+    # sklearn MLPRegressor: faithful 64-64-1 ReLU MLP, Adam, weight decay 1e-6,
+    # batch 64, early stopping (C-optimized -> fast on CPU). Deviation: no dropout
+    # (paper uses dropout 0.1); does not affect the PT-vs-VCP length comparison.
+    model = MLPRegressor(
+        hidden_layer_sizes=(64, 64), activation="relu", solver="adam",
+        alpha=1e-6, batch_size=64, max_iter=MAX_EPOCHS,
+        learning_rate_init=5e-4, early_stopping=True, validation_fraction=0.2,
+        n_iter_no_change=15, random_state=seed,
+    )
+    model.fit(x_tr, y_tr)
+    return lambda x: model.predict(np.asarray(x))
 
 
 def conformal_quantile(res, alpha):
@@ -102,7 +71,7 @@ def run_dataset(name, X, y, bias, rng_seed_base=0):
     results = []
     for s in range(N_SEEDS):
         seed = rng_seed_base + s
-        random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
+        random.seed(seed); np.random.seed(seed)
         x_tr, x_te, y_tr, y_te = train_test_split(X, y, test_size=0.2, random_state=seed)
         n_tr = x_tr.shape[0]
         idx = np.random.permutation(n_tr); h = n_tr // 2
