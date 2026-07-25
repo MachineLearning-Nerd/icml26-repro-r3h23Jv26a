@@ -1,3 +1,16 @@
+---
+title: PT-Conformal Metric Reproduction
+emoji: 🎯
+colorFrom: indigo
+colorTo: blue
+sdk: static
+app_file: index.html
+pinned: false
+tags:
+  - icml2026-repro
+  - paper-r3h23Jv26a
+---
+
 # Reproduction: Questioning the Coverage-Length Metric in Conformal Prediction
 
 Reproduction of **arXiv [2601.21455](https://arxiv.org/abs/2601.21455)** (OpenReview
