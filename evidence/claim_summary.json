@@ -1,0 +1,71 @@
+{
+  "repository": {
+    "original": "MachineLearning-Nerd/icml26-repro-r3h23Jv26a",
+    "intended_final": "MachineLearning-Nerd/icml26-conformal-prediction-coverage-length",
+    "paper_arxiv": "2601.21455",
+    "openreview": "r3h23Jv26a"
+  },
+  "paper": {
+    "title": "Questioning the Coverage-Length Metric in Conformal Prediction: When Shorter Intervals Are Not Better",
+    "authors": [
+      "Yizhou Min",
+      "Yizhou Lu",
+      "Lanqi Li",
+      "Zhen Zhang",
+      "Jiaye Teng"
+    ],
+    "arxiv": "https://arxiv.org/abs/2601.21455v2",
+    "source_html": "https://arxiv.org/html/2601.21455",
+    "author_repository": "https://github.com/benben-cd/PT-Conformal-Prediction",
+    "author_commit": "09655d6c58be2a9b24aafb739c37397e0488e933"
+  },
+  "claims": {
+    "C1": {
+      "status": "VERIFIED_SCOPED",
+      "producer": "repro/src/claims_synthetic.py",
+      "evidence": ["outputs/claims_synthetic.json", "outputs/full_synthetic_summary.json"],
+      "summary": "16/16 nontrivial bias-20 synthetic alpha/p conditions are shorter; maximum aggregate coverage error is 0.013."
+    },
+    "C2": {
+      "status": "PARTIAL_SOURCE_ARTIFACT_AUDIT",
+      "producer": "repro/run_full_source_synthetic.py",
+      "evidence": ["outputs/full_synthetic_summary.json", "outputs/claims_synthetic.json"],
+      "summary": "Current source matches clean-room exactly and bias-10 matches the historical CSV to 7.1e-15, but the paper p=.96 PT length is not exact."
+    },
+    "C3": {
+      "status": "PARTIAL_EXTERNAL_DATA_AUDIT",
+      "producer": "repro/src/claim3_real_world.py",
+      "evidence": ["outputs/claim3_real_world.json"],
+      "summary": "Seven obtainable datasets ran and all seven are shorter; the full paper 9/10 dataset claim is not rerun."
+    },
+    "C4": {
+      "status": "VERIFIED_SCOPED",
+      "producer": "repro/verify_full_synthetic.py",
+      "evidence": ["outputs/independent_verification.json"],
+      "summary": "80 stochastic PT rows are positive and two-outcome; 20 p=1 controls are deterministic; no false positives or negatives."
+    },
+    "C5_constructive": {
+      "status": "VERIFIED_SCOPED",
+      "producer": "repro/src/verify_localized_pt_equivalence.py",
+      "evidence": ["outputs/localized_pt_equivalence.json", "outputs/localized_pt_equivalence_audit.json"],
+      "summary": "15/15 conditions, 1.5 million retrainings, zero samplewise mismatches, and a passing independent audit."
+    },
+    "C5_trained_localizer": {
+      "status": "SIMULATION_CHECK_SCOPED",
+      "producer": "repro/src/claim5_localized_cp.py",
+      "evidence": ["outputs/claim5_localized_cp.json"],
+      "summary": "Three data seeds and twenty retrains per seed yield positive localized IS, VCP IS zero, and mean coverage 0.90625."
+    },
+    "full_paper_experiments": {
+      "status": "NOT_REPRODUCED",
+      "summary": "Theorem proofs, unavailable datasets/checkpoints, classification tasks, full ablations, and complete paper tables are outside the committed audit."
+    }
+  },
+  "invariants": {
+    "focused_tests": 6,
+    "cleanroom_current_source_max_abs_difference": 0.0,
+    "localized_equivalence_mismatches": 0,
+    "tracked_generated_logs": false,
+    "tracked_trackio": false
+  }
+}

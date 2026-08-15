@@ -17,7 +17,7 @@
       "vcp_length_a0.10_matches_22.894": true,
       "vcp_length_se_a0.10_matches_0.138": true
     },
-    "claim": "2: PT-VCP reduces average interval length from 22.894 to 22.614 at alpha=0.10 while preserving nominal coverage (Table 1).",
+    "claim": "2: The paper reports PT-VCP length 22.894 to 22.614 at alpha=0.10; this audit compares the bias-10 source artifact and records any cell-level discrepancy.",
     "cleanroom_vs_reference_csv_max_abs_diff": 7.105427357601002e-15,
     "committed_bias20_vs_reference_max_abs_diff": 20.802883433998257,
     "drift_explanation": "The committed simulation_subgaussian.py sets bias=20 (VCP length ~43.6 at alpha=0.10). The paper's Table 1 was generated with bias=10 (VCP length 22.894); the checked-in historical CSV reference/upstream/table1_source_bias10.csv is reproduced to machine precision only at bias=10.",
@@ -68,7 +68,7 @@
     "stability_repeats_per_test_input": 50,
     "test_ratio": 0.2
   },
-  "results_sha256": "e57686769553c544e5bde1ce170c9031e5833b3fd72e680e09febc61711771cc",
+  "results_sha256": "d260be9fae86f6014a55eeb8d61429fd782a37206957bf35c8eeca8e4a9d4a6b",
   "table1_aggregate_bias10": [
     {
       "alpha": 0.05,

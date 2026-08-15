@@ -1,32 +1,34 @@
 # Claim 1 — PT reduces length while preserving marginal coverage
 
-## Exact claim contract
+## Contract
 
-> The Prejudicial Trick (Algorithm 1) returns a null/minimal interval with
-> probability 1−p and an adjusted conformal interval with probability p,
-> provably preserving valid marginal coverage (Theorem 6) while shrinking the
-> average interval length.
+The Prejudicial Trick returns a null or minimal interval with probability 1-p
+and an adjusted conformal interval with probability p. The adjustment is
+intended to preserve marginal coverage while lowering average length.
 
-## Verdict: VERIFIED
+## Scoped verdict: VERIFIED_SCOPED
 
-Across the full released synthetic grid (**5 seeds × 4 α × 5 p, n=2000**) at both
-the committed `bias=20` and the Table-1 `bias=10`:
+The committed bias-20 source protocol covers five seeds, four alpha values, and
+five p values at n=2,000:
 
-- **16/16** nontrivial (p<1) α/p aggregates have PT-VCP mean length **<** VCP length.
-- Maximum aggregate coverage error from nominal: **≤ 0.013** (bias=20) / ≤ 0.015 (bias=10).
-- The `p=1` boundary **exactly** recovers the base VCP interval (negative control).
+- 16/16 nontrivial alpha/p aggregates have PT-VCP length below VCP length.
+- Maximum aggregate coverage error is 0.013.
+- The 20 p=1 boundary rows exactly recover the VCP interval and stability.
 
-## Why it holds
+The same calculation at bias 10 has 13/16 shorter cells. This is why the
+bias-10 Table-1 path is documented separately as a source-artifact audit.
 
-PT sets α′ = 1 − (1−α)/p, so `p·(1−α′) = 1−α`: marginal coverage is preserved by
-construction (Theorem 6). Length shrinks because the adjusted interval is only
-slightly wider than the base, but a (1−p) fraction of points get a null/minimal
-interval, lowering the average.
+## Production path
 
-## Verifier + command
+repro/src/pt_core.py generates the source-compatible data, model, conformal
+radius, and PT branches. repro/src/claims_synthetic.py aggregates the rows and
+writes outputs/claims_synthetic.json. The independent artifact check is in
+repro/verify_full_synthetic.py.
 
-```bash
-uv run python -m repro.src.claims_synthetic   # verify_claim1; exit 0
-```
-Source: `repro/src/claims_synthetic.py::verify_claim1`. Deterministic seeds `[0..4]`.
-Negative control: p=1 row length/coverage identical to VCP. Git SHA: `272093b`.
+~~~bash
+uv run python -m repro.src.claims_synthetic
+uv run python repro/verify_full_synthetic.py
+~~~
+
+This finite experiment checks the mechanism; it does not prove the paper's
+coverage theorem.

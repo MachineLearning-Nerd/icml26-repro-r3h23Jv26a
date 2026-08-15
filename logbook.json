@@ -1,29 +1,23 @@
 {
   "schema_version": 1,
-  "title": "Repro - PT-Conformal Metric (all 5 claims verified)",
+  "title": "Repro - PT-Conformal Metric (scoped audit)",
   "emoji": "🎯",
   "space_id": "DineshAI/r3h23Jv26a",
   "paper": "arXiv:2601.21455",
   "tags": ["icml2026-repro", "paper-r3h23Jv26a"],
-  "updated_at": "2026-07-25T00:00:00Z",
+  "updated_at": "2026-08-15T00:00:00Z",
   "root": {
     "slug": "index",
-    "title": "Repro - PT-Conformal Metric (Claims 1-5)",
+    "title": "Repro - PT-Conformal Metric (scoped Claims 1-5)",
     "file": "pages/index.md",
     "children": [
       {"slug": "claim-1", "title": "Claim 1 — length vs coverage", "file": "pages/claim-1/page.md", "children": []},
-      {"slug": "claim-2", "title": "Claim 2 — Table 1 (22.894 resolved)", "file": "pages/claim-2/page.md", "children": []},
+      {"slug": "claim-2", "title": "Claim 2 — Table 1 source-artifact audit", "file": "pages/claim-2/page.md", "children": []},
       {"slug": "claim-3", "title": "Claim 3 — real-world benchmarks", "file": "pages/claim-3/page.md", "children": []},
       {"slug": "claim-4", "title": "Claim 4 — interval stability", "file": "pages/claim-4/page.md", "children": []},
       {"slug": "claim-5", "title": "Claim 5 — localized CP / IS", "file": "pages/claim-5/page.md", "children": []},
-      {"slug": "methods", "title": "Methods & source audit", "file": "pages/methods/page.md", "children": []},
-      {"slug": "historical-overview", "title": "Historical (4/10 revision) — Overview", "file": "pages/overview/page.md", "children": []},
-      {"slug": "historical-methods", "title": "Historical (4/10 revision) — Methods", "file": "pages/methods-source-audit/page.md", "children": []},
-      {"slug": "historical-controls", "title": "Historical (4/10 revision) — Negative controls", "file": "pages/negative-controls/page.md", "children": []},
-      {"slug": "historical-conclusion", "title": "Historical (4/10 revision) — Conclusion", "file": "pages/conclusion/page.md", "children": []},
-      {"slug": "historical-claim3-length", "title": "Historical rejected baseline — PT length (toy)", "file": "pages/claim-3-pt-deceptive-length/page.md", "children": []},
-      {"slug": "historical-claim4-stability", "title": "Historical rejected baseline — stability (toy)", "file": "pages/claim-4-interval-stability/page.md", "children": []},
-      {"slug": "historical-claim5-equiv", "title": "Historical rejected baseline — localized equiv (toy)", "file": "pages/claim-5-localized-equivalence/page.md", "children": []}
+      {"slug": "claim-5-localized-equivalence", "title": "Claim 5 — localized CP/PT equivalence", "file": "pages/claim-5-localized-equivalence/page.md", "children": []},
+      {"slug": "methods", "title": "Methods & source audit", "file": "pages/methods/page.md", "children": []}
     ]
   },
   "agent_view_tokens": 3000,

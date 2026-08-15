@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If this audit or its evidence is useful, please cite the software and the paper below."
+title: "ICML 2026 audit: Questioning the Coverage-Length Metric in Conformal Prediction"
+type: software
+authors:
+  - family-names: "MachineLearning-Nerd"
+    given-names: "MachineLearning-Nerd"
+repository-code: "https://github.com/MachineLearning-Nerd/icml26-conformal-prediction-coverage-length"
+url: "https://github.com/MachineLearning-Nerd/icml26-conformal-prediction-coverage-length"
+version: "0.1.0"
+date-released: "2026-08-15"
+license: "NOASSERTION"
+keywords:
+  - conformal prediction
+  - interval stability
+  - reproducibility
+  - ICML 2026
+references:
+  - type: article
+    authors:
+      - family-names: "Min"
+        given-names: "Yizhou"
+      - family-names: "Lu"
+        given-names: "Yizhou"
+      - family-names: "Li"
+        given-names: "Lanqi"
+      - family-names: "Zhang"
+        given-names: "Zhen"
+      - family-names: "Teng"
+        given-names: "Jiaye"
+    title: "Questioning the Coverage-Length Metric in Conformal Prediction: When Shorter Intervals Are Not Better"
+    year: 2026
+    url: "https://arxiv.org/abs/2601.21455"
+    doi: "10.48550/arXiv.2601.21455"
+    eprint: "2601.21455"

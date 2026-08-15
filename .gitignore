@@ -8,3 +8,4 @@ __pycache__/
 /reference/upstream/pt_result/
 /reference/upstream/ablation_study_result/
 outputs/quick_*.json
+outputs/**/*.log

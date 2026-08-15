@@ -1,0 +1,510 @@
+{
+  "claim": "Proposition 1 localized-CP/PT equivalence and Definition 1 interval-stability detection",
+  "conditions": [
+    {
+      "adjusted_quantile": 0.9967340718356393,
+      "alpha": 0.1,
+      "alpha_prime": 0.01098901098901095,
+      "analytic_average_width": 1.814056010741043,
+      "analytic_interval_stability": 0.32546365814160727,
+      "average_width": 1.8150527448128777,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.32383335941446945,
+      "empirical_p": 0.9105,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.9934681436712787,
+      "minimal_width": 1.993516463016931e-12,
+      "p": 0.91,
+      "passed": true,
+      "relative_stability_error": 0.0050091575091572626,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121455
+    },
+    {
+      "adjusted_quantile": 0.995019509431571,
+      "alpha": 0.1,
+      "alpha_prime": 0.01098901098901095,
+      "analytic_average_width": 1.8109355071656386,
+      "analytic_interval_stability": 0.32434490879070915,
+      "average_width": 1.8113136145792221,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.32372775805028436,
+      "empirical_p": 0.91019,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.990039018863142,
+      "minimal_width": 1.9899637493381306e-12,
+      "p": 0.91,
+      "passed": true,
+      "relative_stability_error": 0.0019027606837603182,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121456
+    },
+    {
+      "adjusted_quantile": 0.9964643537274055,
+      "alpha": 0.1,
+      "alpha_prime": 0.01098901098901095,
+      "analytic_average_width": 1.8135651237840575,
+      "analytic_interval_stability": 0.3252875398218449,
+      "average_width": 1.8110739628997412,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.32935239289310775,
+      "empirical_p": 0.90875,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.992928707454811,
+      "minimal_width": 1.992850329202156e-12,
+      "p": 0.91,
+      "passed": true,
+      "relative_stability_error": 0.012496184371184715,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121457
+    },
+    {
+      "adjusted_quantile": 0.9974997451906699,
+      "alpha": 0.1,
+      "alpha_prime": 0.01098901098901095,
+      "analytic_average_width": 1.8154495362471987,
+      "analytic_interval_stability": 0.3259638809656738,
+      "average_width": 1.8153697362675836,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.3260944193509421,
+      "empirical_p": 0.90996,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.9949994903813397,
+      "minimal_width": 1.9950707752514063e-12,
+      "p": 0.91,
+      "passed": true,
+      "relative_stability_error": 0.00040046886446913323,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121458
+    },
+    {
+      "adjusted_quantile": 0.996712844859083,
+      "alpha": 0.1,
+      "alpha_prime": 0.01098901098901095,
+      "analytic_average_width": 1.8140173776437105,
+      "analytic_interval_stability": 0.32544979579643046,
+      "average_width": 1.8150539590023627,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.3237543160094662,
+      "empirical_p": 0.91052,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.993425689718166,
+      "minimal_width": 1.993516463016931e-12,
+      "p": 0.91,
+      "passed": true,
+      "relative_stability_error": 0.005209650793650513,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121459
+    },
+    {
+      "adjusted_quantile": 0.9836313848644646,
+      "alpha": 0.1,
+      "alpha_prime": 0.05263157894736836,
+      "analytic_average_width": 1.868899631242581,
+      "analytic_interval_stability": 0.18383083324480554,
+      "average_width": 1.8685848691994247,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.1843880318536037,
+      "empirical_p": 0.94984,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.967262769728929,
+      "minimal_width": 1.9673151996357774e-12,
+      "p": 0.95,
+      "passed": true,
+      "relative_stability_error": 0.0030310399999990433,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121455
+    },
+    {
+      "adjusted_quantile": 0.9802286725749636,
+      "alpha": 0.1,
+      "alpha_prime": 0.05263157894736836,
+      "analytic_average_width": 1.8624344778925286,
+      "analytic_interval_stability": 0.18256116760186933,
+      "average_width": 1.8632382654040394,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.18114230950971413,
+      "empirical_p": 0.95041,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.9604573451499272,
+      "minimal_width": 1.9604318168831014e-12,
+      "p": 0.95,
+      "passed": true,
+      "relative_stability_error": 0.0077719600000009355,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121456
+    },
+    {
+      "adjusted_quantile": 0.982340990305702,
+      "alpha": 0.1,
+      "alpha_prime": 0.05263157894736836,
+      "analytic_average_width": 1.8664478815809318,
+      "analytic_interval_stability": 0.18334882603424307,
+      "average_width": 1.865642361968882,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.1847725080525372,
+      "empirical_p": 0.94959,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.964681980611404,
+      "minimal_width": 1.964650664376677e-12,
+      "p": 0.95,
+      "passed": true,
+      "relative_stability_error": 0.007764882105262197,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121457
+    },
+    {
+      "adjusted_quantile": 0.9851401838747084,
+      "alpha": 0.1,
+      "alpha_prime": 0.05263157894736836,
+      "analytic_average_width": 1.8717663493620444,
+      "analytic_interval_stability": 0.18439522455772328,
+      "average_width": 1.8712343736627526,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.18533826870836853,
+      "empirical_p": 0.94973,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.9702803677494167,
+      "minimal_width": 1.9702017794998028e-12,
+      "p": 0.95,
+      "passed": true,
+      "relative_stability_error": 0.005114254736841293,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121458
+    },
+    {
+      "adjusted_quantile": 0.981567267448403,
+      "alpha": 0.1,
+      "alpha_prime": 0.05263157894736836,
+      "analytic_average_width": 1.8649778081520636,
+      "analytic_interval_stability": 0.1830601170995977,
+      "average_width": 1.8644084991369443,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.18406566015659012,
+      "empirical_p": 0.94971,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.963134534896806,
+      "minimal_width": 1.9630963521422018e-12,
+      "p": 0.95,
+      "passed": true,
+      "relative_stability_error": 0.005492966315788608,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121459
+    },
+    {
+      "adjusted_quantile": 0.9686278863864396,
+      "alpha": 0.1,
+      "alpha_prime": 0.09090909090909083,
+      "analytic_average_width": 1.9178832150451697,
+      "analytic_interval_stability": 0.03715430329842999,
+      "average_width": 1.9175926266792542,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.0377059039664143,
+      "empirical_p": 0.98985,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.9372557727728792,
+      "minimal_width": 1.937339177970898e-12,
+      "p": 0.99,
+      "passed": true,
+      "relative_stability_error": 0.01484621212121132,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121455
+    },
+    {
+      "adjusted_quantile": 0.9673612422044332,
+      "alpha": 0.1,
+      "alpha_prime": 0.09090909090909083,
+      "analytic_average_width": 1.915375259564797,
+      "analytic_interval_stability": 0.03705719580753036,
+      "average_width": 1.9148915789436953,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.03797403387804618,
+      "empirical_p": 0.98975,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.9347224844088664,
+      "minimal_width": 1.9346746427117978e-12,
+      "p": 0.99,
+      "passed": true,
+      "relative_stability_error": 0.024741161616160624,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121456
+    },
+    {
+      "adjusted_quantile": 0.970753285050418,
+      "alpha": 0.1,
+      "alpha_prime": 0.09090909090909083,
+      "analytic_average_width": 1.922091504399847,
+      "analytic_interval_stability": 0.03731753284119805,
+      "average_width": 1.922266239991156,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.03698503701608593,
+      "empirical_p": 0.99009,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.941506570100836,
+      "minimal_width": 1.9415580254644738e-12,
+      "p": 0.99,
+      "passed": true,
+      "relative_stability_error": 0.00890990909090991,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121457
+    },
+    {
+      "adjusted_quantile": 0.9709659890572968,
+      "alpha": 0.1,
+      "alpha_prime": 0.09090909090909083,
+      "analytic_average_width": 1.922512658333467,
+      "analytic_interval_stability": 0.03733388809540354,
+      "average_width": 1.922337884455437,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.037666468552526845,
+      "empirical_p": 0.98991,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.9419319781145936,
+      "minimal_width": 1.942002114674324e-12,
+      "p": 0.99,
+      "passed": true,
+      "relative_stability_error": 0.008908272727271875,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121458
+    },
+    {
+      "adjusted_quantile": 0.969258256940695,
+      "alpha": 0.1,
+      "alpha_prime": 0.09090909090909083,
+      "analytic_average_width": 1.9191313487425954,
+      "analytic_interval_stability": 0.037202678118375125,
+      "average_width": 1.9191313487425956,
+      "calibration_size": 2000,
+      "checks": {
+        "branch_probability_matches": true,
+        "interval_stability_positive": true,
+        "mean_width_matches_analytic": true,
+        "random_localizer_shrinks_mean_width": true,
+        "samplewise_pt_equivalence": true,
+        "stability_matches_analytic": true,
+        "two_point_scale_estimator": true
+      },
+      "empirical_interval_stability": 0.037202678118375083,
+      "empirical_p": 0.99,
+      "equivalence_mismatches": 0,
+      "informative_width": 1.93851651388139,
+      "minimal_width": 1.9384494009955233e-12,
+      "p": 0.99,
+      "passed": true,
+      "relative_stability_error": 1.1190958696836356e-15,
+      "retrainings": 100000,
+      "scale_outputs": [
+        1e-12,
+        1.0
+      ],
+      "seed": 260121459
+    }
+  ],
+  "deterministic_p1_control": {
+    "interval_stability": 0.0,
+    "p": 1.0,
+    "passed": true,
+    "scale_outputs": [
+      1.0
+    ]
+  },
+  "epsilon_scale_for_zero_plus": 1e-12,
+  "judged_space_sha": "09b41e11615d25da127c7953458f988225150732",
+  "paper": "arXiv:2601.21455",
+  "results_sha256_without_hash": "bbcc70450a6ba1be7d2470f02e10cd78d9063241e8399ad3361d589c047b5fae",
+  "source_scope": "Section 3.2 Proposition 1 and Equation 4; Section 4 Definition 1 and Equations 15-16",
+  "source_url": "https://ar5iv.labs.arxiv.org/html/2601.21455",
+  "stdlib_only": true,
+  "summary": {
+    "condition_count": 15,
+    "deterministic_control_passed": true,
+    "equivalence_mismatches": 0,
+    "maximum_relative_stability_error": 0.024741161616160624,
+    "minimum_interval_stability": 0.03698503701608593,
+    "passed_conditions": 15,
+    "total_retrainings": 1500000
+  },
+  "verdict": "supports"
+}

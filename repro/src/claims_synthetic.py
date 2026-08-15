@@ -143,8 +143,9 @@ def verify_claim2(bias10: dict, bias20: dict) -> dict:
         "committed_bias20_drifts_from_table1": drift_diff > 1.0,
     }
     return {
-        "claim": "2: PT-VCP reduces average interval length from 22.894 to 22.614 at "
-                 "alpha=0.10 while preserving nominal coverage (Table 1).",
+        "claim": "2: The paper reports PT-VCP length 22.894 to 22.614 at alpha=0.10; "
+                 "this audit compares the bias-10 source artifact and records any "
+                 "cell-level discrepancy.",
         "table1_reproduced_at_bias": 10,
         "vcp_length_a0.10": vcp_len_010,
         "paper_vcp_length_a0.10": 22.894,

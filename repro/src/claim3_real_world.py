@@ -143,7 +143,7 @@ def main() -> int:
         "claim": "3: PT-VCP reduces interval length in 9 of 10 datasets while maintaining 90% marginal coverage (Table 2).",
         "source": "arXiv:2601.21455 Sec 3.4 Table 2, Appendix D.2",
         "protocol": {"alpha": ALPHA, "p": P, "n_seeds": N_SEEDS, "max_epochs": MAX_EPOCHS,
-                     "deviation": "max_epochs capped at 120 (paper 1000) with early stopping for CPU feasibility; "
+                     "deviation": "max_epochs capped at 200 (paper 1000) with early stopping for CPU feasibility; "
                                   "MEPS/BLOG/FACEBOOK datasets not reliably obtainable from public sources."},
         "datasets_run": [r["dataset"] for r in table],
         "datasets_failed": {k: v.get("status") for k, v in data.items() if v.get("status") != "ok"},

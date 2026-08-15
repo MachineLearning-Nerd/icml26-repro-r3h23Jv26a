@@ -1,57 +1,42 @@
-# Claim 3 — Real-world regression benchmarks (Table 2)
+# Claim 3 — Real-world regression benchmarks
 
-## Exact claim contract
+## Contract
 
-> On real-world regression benchmarks (including MEPS and BIO), PT-VCP reduces
-> interval length in **9 of 10 datasets** while maintaining 90% marginal
-> coverage (Table 2, α=0.10).
+The paper reports that PT-VCP reduces interval length on 9 of 10 real
+regression datasets while maintaining approximately 90% marginal coverage.
 
-## Verdict: VERIFIED (on the obtainable datasets)
+## Scoped verdict: PARTIAL_EXTERNAL_DATA_AUDIT
 
-We trained the paper's MLP protocol on real UCI regression datasets and computed
-VCP vs PT-VCP. **PT-VCP is shorter in 7/7 datasets run, with coverage 0.89–0.91.**
+The committed run executes seven obtainable UCI datasets:
 
-## Protocol (faithful to Appendix D.2.1–3)
+- concrete, bio, bike — the three paper datasets available to this run;
+- airfoil, energy, wine, and realestate — additional regression diagnostics.
 
-Base regressor **MLP 64-64-1, ReLU, Adam (lr 5e-4, wd 1e-6), batch 64, early
-stopping**; `StandardScaler` on features; labels ÷ mean|y_train|; a constant
-**bias** added to the residuals to induce model misspecification (Table-2 bias
-column); α=0.10, p=0.95, **5 seeds**. (MLP via sklearn `MLPRegressor`, C-optimized;
-no dropout — documented; does not affect the PT-vs-VCP comparison.)
+PT-VCP is shorter in all 7/7 runs. PT-VCP coverage ranges from 0.8922 to
+0.9047 across the seven aggregate results. The three paper datasets are
+included and all have shorter PT-VCP intervals.
 
-## Results (run `a1c6933c`, HF cpu-upgrade, 2m39s)
+This is not a full 9/10 reproduction. The unavailable paper datasets,
+checkpoints, and author-supplied summary tables are not substituted for reruns.
+The source-supplied Table-3 CSV is checked only as an artifact.
 
-| Dataset | Bias | VCP length | PT-VCP length | shorter? | PT coverage | Paper Table 2 VCP / PT |
-|---|---|---|---|---|---|---|
-| **concrete** ★ | 5 | 10.509 | **10.198** | ✓ | 0.898 | 10.32 / 9.87 |
-| **bio (CASP)** ★ | 10 | 21.424 | **20.702** | ✓ | 0.905 | 21.13 / 20.44 |
-| **bike** ★ | 10 | 20.819 | **20.106** | ✓ | 0.901 | 20.46 / 19.59 |
-| airfoil | 10 | 20.077 | **19.150** | ✓ | 0.900 | — |
-| energy | 10 | 20.313 | **19.424** | ✓ | 0.892 | — |
-| wine | 10 | 20.307 | **19.441** | ✓ | 0.898 | — |
-| realestate | 10 | 20.523 | **19.481** | ✓ | 0.904 | — |
+## Protocol and deviations
 
-★ = paper Table-2 dataset. **7/7 shorter, coverage within 0.01 of 0.90.** The three
-paper datasets reproduce Table 2 closely (e.g. bike 20.82/20.11 vs 20.46/19.59).
+repro/src/claim3_real_world.py uses five seeds, alpha=0.10, p=0.95, feature
+standardization, residual bias, and a 64-64-1 ReLU Adam MLP. For CPU
+feasibility, the sklearn MLP uses max_iter=200 with early stopping and large
+datasets are capped at 10,000 rows. Dropout is not used. These deviations are
+recorded in the output and source manifest.
 
-## Verifier + command
+## Production path
 
-```bash
-uv run python -m repro.src.claim3_real_world   # writes outputs/claim3_real_world.json; exit 0
-```
-Source: `repro/src/claim3_real_world.py`. Datasets: `repro/src/real_datasets.py`.
-results_sha256: `55b6e29e2947…` (HF run). Git SHA: `272093b`.
+repro/src/real_datasets.py loads the public datasets and records failures.
+repro/src/claim3_real_world.py trains the models and writes
+outputs/claim3_real_world.json.
 
-**Negative control:** VCP (no PT) is the longer-length baseline every dataset is
-compared against; `p=1` recovers VCP exactly. Coverage is held at ~0.90 in every
-case, confirming the length gap is the PT effect, not a coverage violation.
+~~~bash
+uv run python -m repro.src.claim3_real_world
+~~~
 
-### Deviations (honest)
-- **Datasets not obtained:** MEPS-19/20/21, BLOG-DATA, FACEBOOK-1/2 were not
-  reliably servable from public sources (UCI static + API + OpenML all failed) and
-  are not claimed as rerun. The authors' own Table-2 reference CSVs
-  (`reference/upstream/ablation_study_result/`) corroborate 9/10 on the full set.
-- **Large datasets** capped at 10 000 rows and `max_iter` capped at 200 (early
-  stopping) for CPU feasibility — does not change the PT<VCP conclusion.
-- Additional real UCI datasets (airfoil, energy, wine, realestate) included to test
-  the "9/10" generalization beyond the paper's exact set; all confirm PT<VCP.
+The command needs network access for dataset retrieval. The committed JSON
+artifact is the evidence for the audited run.

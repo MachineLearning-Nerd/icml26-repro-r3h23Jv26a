@@ -1,60 +1,38 @@
-# Claim 2 — Table 1 numbers reproduced (22.894 → 22.614)
+# Claim 2 — Table 1 source-artifact audit
 
-## Exact claim contract
+## Paper contract
 
-> On synthetic data, PT applied to Vanilla Conformal Prediction (PT-VCP) reduces
-> the average interval length from **22.894** to **22.614** at α=0.10 while
-> preserving nominal coverage (Table 1, arXiv:2601.21455).
+The paper's Table 1 reports, at alpha=0.10, VCP length 22.894 and PT-VCP
+length 22.614 for p=0.96. It reports PT-VCP length 22.714 for p=0.98.
 
-## Verdict: VERIFIED
+## Scoped verdict: PARTIAL_SOURCE_ARTIFACT_AUDIT
 
-The committed author script `simulation_subgaussian.py` sets the Gaussian-mixture
-noise mean `bias = 20`, which yields VCP length ≈ **43.6** at α=0.10 — not 22.894.
-The paper's Table 1 was generated with `bias = 10`. Running the **exact** released
-protocol at `bias = 10` reproduces the paper's numbers to machine precision.
+The current committed author snapshot uses bias 20. The paper table and the
+checked-in historical CSV correspond to bias 10.
 
-## Evidence (run `a1c6933c`, bias=10, 5 seeds × 4 α × 5 p, n=2000)
+| Cell | Paper | Clean-room at bias 10 | Assessment |
+|---|---:|---:|---|
+| VCP, p=.96 | 22.894 | 22.89381453 | matches to rounding |
+| PT-VCP, p=.96 | 22.614 | 22.51439246 | 0.0996 lower; not exact |
+| PT-VCP, p=.98 | 22.714 | 22.71439989 | matches to rounding |
 
-| Cell (α=0.10) | Paper Table 1 | This repro (bias=10) | Authors' historical CSV |
-|---|---|---|---|
-| VCP length | 22.894 | **22.89381453** | 22.89381453213531 |
-| PT-VCP length, p=0.98 | 22.714 | **22.71440** | 22.71439988645902 |
-| VCP length std-err | ±0.138 | **0.1377** | 0.3079/√5 = 0.1377 |
+The full 32-row bias-10 clean-room layout matches
+reference/upstream/table1_source_bias10.csv with maximum absolute difference
+7.105427357601002e-15. The bias-20 layout differs from that historical artifact
+by 20.802883433998257. Both facts are retained.
 
-| Cell (α=0.20) | Paper | This repro (bias=10) |
-|---|---|---|
-| VCP length | 21.886 | **21.88592858** |
-| PT-VCP length, p=0.96 | 21.255 | **21.25472561** |
-| PT-VCP length, p=0.98 | 21.589 | **21.58927235** |
+## Production path
 
-**Clean-room vs authors' historical CSV max-abs-difference = 7.1 × 10⁻¹⁵** (machine
-precision) — i.e. the reproduction is byte-identical to the artifact that produced
-Table 1. The committed `bias=20` code differs from that CSV by 20.8 (the drift).
+repro/src/pt_core.py implements the source protocol. The
+repro/run_full_source_synthetic.py runner executes the committed author
+snapshot in a temporary directory and compares the resulting 100-condition
+layout with the clean-room implementation. repro/src/claims_synthetic.py
+records the Table-1 cells and drift checks.
 
-## PT shortens length while preserving coverage
+~~~bash
+uv run python repro/run_full_source_synthetic.py
+uv run python -m repro.src.claims_synthetic
+~~~
 
-At α=0.10, bias=10: VCP length 22.894 → PT-VCP length ≈ 22.5 (p=0.96), with PT
-coverage 0.909 ≈ 0.90 nominal. PT is shorter in **all 16/16** nontrivial α/p cells.
-
-## The drift, explained
-
-`reference/upstream/table1_source_bias10.csv` is the authors' checked-in historical
-Table-1 result (bias=10). The committed `simulation_subgaussian.py` (bias=20) does
-**not** regenerate it — a post-publication parameter change. This reproduction:
-1. runs the committed code at bias=20 (documents the ≈43.6 drift), and
-2. runs the same protocol at bias=10 (reproduces 22.894 exactly).
-
-## Verifier + command
-
-```bash
-uv run python -m repro.src.claims_synthetic     # writes outputs/claims_synthetic.json; exit 0
-```
-
-Source: `repro/src/claims_synthetic.py::verify_claim2`. Seeds `[0,1,2,3,4]`, deterministic.
-results_sha256 (full synthetic suite): `944073267a8fe9895635dd989cc0c94c8b28f325…`.
-Git SHA: `272093b`. Negative control: `p=1` exactly recovers the base VCP interval.
-
-### Limitations
-The paper's Appendix D.1.1 states μ=20, contradicting its own Table 1 (22.894 ⇒
-μ=10). We treat the **table numbers** as the claim and report the μ=20/μ=10
-discrepancy as reproduced source drift, not hidden.
+The historical CSV match is strong evidence about the source artifact; it is
+not evidence that every printed paper number is reproduced exactly.

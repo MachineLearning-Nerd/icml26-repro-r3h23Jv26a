@@ -6,8 +6,10 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import shutil
 import subprocess
 import sys
+import tempfile
 from collections import defaultdict
 from pathlib import Path
 
@@ -20,9 +22,8 @@ if str(ROOT) not in sys.path:
 from repro.src.pt_core import ALPHAS, N, PS, SEEDS, TEST_RATIO, interval_stability, source_layout, source_seed_rows
 
 
-AUTHOR_ORDINARY = ROOT / "upstream" / "ordinary_regression_task"
-AUTHOR_CHECKED_IN = AUTHOR_ORDINARY / "simulation_ablation" / "ablation_study_simulation_p.csv"
-AUTHOR_GENERATED = AUTHOR_ORDINARY / "ablation_study_simulation_p.csv"
+AUTHOR_SOURCE = ROOT / "reference" / "upstream" / "simulation_subgaussian.py"
+AUTHOR_CHECKED_IN = ROOT / "reference" / "upstream" / "table1_source_bias10.csv"
 
 
 def read_author_csv(path: Path) -> np.ndarray:
@@ -73,10 +74,14 @@ def main() -> None:
     args = parser.parse_args()
     args.output.parent.mkdir(parents=True, exist_ok=True)
 
-    # Execute the unmodified pinned author program before comparing the clean-room
-    # reconstruction.  It is a complete 5-seed / 4-alpha / 5-p run.
-    subprocess.run([sys.executable, "simulation_subgaussian.py"], cwd=AUTHOR_ORDINARY, check=True)
-    author_generated = read_author_csv(AUTHOR_GENERATED)
+    # Execute the committed author snapshot in isolation before comparing the
+    # clean-room reconstruction. It is a complete 5-seed / 4-alpha / 5-p run.
+    with tempfile.TemporaryDirectory(prefix="icml26-pt-source-") as workdir:
+        author_program = Path(workdir) / "simulation_subgaussian.py"
+        author_generated_path = Path(workdir) / "ablation_study_simulation_p.csv"
+        shutil.copy2(AUTHOR_SOURCE, author_program)
+        subprocess.run([sys.executable, author_program.name], cwd=workdir, check=True)
+        author_generated = read_author_csv(author_generated_path)
     author_checked_in = read_author_csv(AUTHOR_CHECKED_IN)
 
     rows = [row for seed in SEEDS for row in source_seed_rows(seed)]

@@ -27,7 +27,7 @@
         "base_length": 44.48286946066405,
         "p": 0.98,
         "pt_coverage": 0.9545,
-        "pt_length": 44.228158430263456,
+        "pt_length": 44.22815843026346,
         "pt_shorter": true,
         "target_coverage": 0.95
       },
@@ -47,7 +47,7 @@
         "base_length": 44.48286946066405,
         "p": 1.0,
         "pt_coverage": 0.9525,
-        "pt_length": 44.48286946066405,
+        "pt_length": 44.48286946066404,
         "pt_shorter": true,
         "target_coverage": 0.95
       },
@@ -57,7 +57,7 @@
         "base_length": 43.56580138394143,
         "p": 0.96,
         "pt_coverage": 0.9025000000000001,
-        "pt_length": 42.439739159542874,
+        "pt_length": 42.43973915954287,
         "pt_shorter": true,
         "target_coverage": 0.9
       },
@@ -154,7 +154,7 @@
       {
         "absolute_coverage_error": 0.008500000000000063,
         "alpha": 0.2,
-        "base_length": 42.36049264058022,
+        "base_length": 42.36049264058021,
         "p": 0.96,
         "pt_coverage": 0.7915,
         "pt_length": 40.89039786157576,
@@ -164,7 +164,7 @@
       {
         "absolute_coverage_error": 0.013000000000000012,
         "alpha": 0.2,
-        "base_length": 42.36049264058022,
+        "base_length": 42.36049264058021,
         "p": 0.97,
         "pt_coverage": 0.787,
         "pt_length": 41.079205564119775,
@@ -174,7 +174,7 @@
       {
         "absolute_coverage_error": 0.0025000000000000577,
         "alpha": 0.2,
-        "base_length": 42.36049264058022,
+        "base_length": 42.36049264058021,
         "p": 0.98,
         "pt_coverage": 0.7975,
         "pt_length": 41.68813255707188,
@@ -184,7 +184,7 @@
       {
         "absolute_coverage_error": 0.00550000000000006,
         "alpha": 0.2,
-        "base_length": 42.36049264058022,
+        "base_length": 42.36049264058021,
         "p": 0.99,
         "pt_coverage": 0.7945,
         "pt_length": 41.97565106625389,
@@ -194,7 +194,7 @@
       {
         "absolute_coverage_error": 0.0015000000000000568,
         "alpha": 0.2,
-        "base_length": 42.36049264058022,
+        "base_length": 42.36049264058021,
         "p": 1.0,
         "pt_coverage": 0.7985,
         "pt_length": 42.360492640580226,

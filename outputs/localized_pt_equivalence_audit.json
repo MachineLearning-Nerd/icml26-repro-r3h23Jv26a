@@ -1,0 +1,20 @@
+{
+  "audit_sha256_without_hash": "6d07c828c43831fa464260679d93fbcdea19e9704a6bdef9dc2ebaabca289884",
+  "checks": {
+    "all_analytic_matches": true,
+    "all_conditions_pass": true,
+    "all_mean_widths_shrink": true,
+    "all_stochastic_is_positive": true,
+    "fifteen_conditions": true,
+    "judged_parent_recorded": true,
+    "p1_control_zero": true,
+    "payload_hash_matches": true,
+    "source_is_ar5iv": true,
+    "stdlib_only": true,
+    "verifier_verdict_supports": true,
+    "zero_equivalence_mismatches": true
+  },
+  "input": "/Users/dineshjinjala/Documents/AllCode/ICMLPapersRefector/icml26-repro-r3h23Jv26a/outputs/localized_pt_equivalence.json",
+  "passed": true,
+  "verified_results_sha256_without_hash": "bbcc70450a6ba1be7d2470f02e10cd78d9063241e8399ad3361d589c047b5fae"
+}

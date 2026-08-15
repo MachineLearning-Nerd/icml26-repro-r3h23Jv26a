@@ -1,51 +1,42 @@
-# Status
+# Reproduction status
 
-## Current step
+## Repository
 
-`publication_queued` — full reproduction and publication gate re-run on
-2026-07-19; Hugging Face Space creation is quota-blocked.
+- Intended final name: MachineLearning-Nerd/icml26-conformal-prediction-coverage-length
+- Original name: MachineLearning-Nerd/icml26-repro-r3h23Jv26a
+- Publication branch: main
+- Paper: [Questioning the Coverage-Length Metric in Conformal Prediction](https://arxiv.org/abs/2601.21455v2)
+- OpenReview: [r3h23Jv26a](https://openreview.net/forum?id=r3h23Jv26a)
 
-## Verified results
+## Current audit state
 
-- Full source scale: 5 seeds × 4 alpha values × 5 PT probabilities at
-  `n=2,000` (100 conditions).
-- C1: all 16 nontrivial alpha/p aggregates shorten the observed mean interval;
-  maximum aggregated marginal-coverage error is `0.013`.
-- C2: all 80 `p < 1` rows emit both singleton and adjusted intervals for the
-  same input across runs; VCP is deterministic in all 100 rows.
-- C3: the source stability statistic detects all 80 PT rows with zero false
-  negatives and has zero false positives on 20 `p=1` controls.
-- The clean-room protocol matches the unmodified pinned author execution
-  exactly (`max abs difference = 0`); six tests and independent raw-artifact
-  verification pass.
+scoped_audit_ready — documentation and committed evidence are being published
+with explicit limitations.
 
-## Source discrepancy and scope
+- Synthetic PT mechanism: VERIFIED_SCOPED.
+- Synthetic Table 1: PARTIAL_SOURCE_ARTIFACT_AUDIT; the bias-10 historical
+  CSV matches, but the paper's p=0.96 PT length is not exact.
+- Real-world regression: PARTIAL_EXTERNAL_DATA_AUDIT; 7 obtainable datasets
+  ran, while unavailable datasets/checkpoints are not claimed as rerun.
+- PT instability and the constructive localized-CP equivalence: VERIFIED_SCOPED.
+- Trained localizer: SIMULATION_CHECK_SCOPED.
 
-The current pinned executable differs from the repository's checked-in
-historical synthetic summary (`max abs difference = 20.8029`). This is preserved
-in `outputs/full_synthetic_summary.json`, not hidden. The complete released
-synthetic protocol is reproduced; unavailable external data/checkpoint studies
-are not claimed as rerun evidence.
+## Verification
 
-## Next action
+- uv run python repro/src/verify_final.py — committed evidence and scope
+  invariants.
+- uv run python repro/run_full_source_synthetic.py — clean-room/current
+  source equivalence and historical artifact comparison.
+- uv run python repro/verify_full_synthetic.py — independent synthetic and
+  Table-3 artifact checks.
+- uv run python repro/src/audit_localized_pt_equivalence.py — independent
+  localized-CP audit.
+- uv run pytest -q — 6 focused tests.
 
-Publish to `DineshAI/r3h23Jv26a` only after the daily Hugging Face Space quota
-resets. The fresh 2026-07-19 pre-publish gate passed again (six tests,
-independent three-claim raw verifier, source pin, tags/artifact-path check, and
-secret scan), and Trackio re-uploaded the declared local artifact. Space
-creation then received HTTP 429; the provider's authoritative response at
-12:23 IST says retry in about 20 hours because the account-wide 20-Spaces/day
-quota is exhausted. Do not retry before that external window changes. After a
-successful create, verify public tags and artifacts and change the coordination
-entry to `under_verdict`.
+## Attribution
 
-## Public code
+All publication commits and rewritten reachable history use:
 
-https://github.com/MachineLearning-Nerd/icml26-repro-r3h23Jv26a (commit
-`3ae4ecd`)
+MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>
 
-## Scope
-
-All three live challenge claims are evaluated on the full released synthetic
-protocol. The unavailable external dataset/checkpoint experiments are not
-substituted or claimed as rerun evidence.
+No author endorsement or external score is implied.

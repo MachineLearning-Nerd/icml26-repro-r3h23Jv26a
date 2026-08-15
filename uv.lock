@@ -223,7 +223,7 @@ wheels = [
 ]
 
 [[package]]
-name = "icml26-repro-r3h23jv26a"
+name = "icml26-conformal-prediction-coverage-length"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

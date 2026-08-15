@@ -13,7 +13,7 @@ import numpy as np
 
 
 ROOT = Path(__file__).resolve().parents[1]
-AUTHOR_TABLE3 = ROOT / "upstream" / "ordinary_regression_task" / "interval_stability_results" / "table3_interval_stability_vcp_ptvcp.csv"
+AUTHOR_TABLE3 = ROOT / "reference" / "upstream" / "table3_interval_stability.csv"
 
 
 def grouped(rows: list[dict]) -> dict[tuple[float, float], list[dict]]:
