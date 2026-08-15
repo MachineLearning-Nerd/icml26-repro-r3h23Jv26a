@@ -21,7 +21,11 @@
 The branch links in README.md use the final names. The original names are
 recorded here so the provenance of each experiment remains inspectable.
 
-## Published tips
+## Tips at branch rename
+
+These immutable tip IDs were recorded immediately after the branch rename.
+The main branch later received documentation-only commits; the evidence
+branches remain at the listed tips.
 
 | Final branch | Published tip |
 |---|---|
