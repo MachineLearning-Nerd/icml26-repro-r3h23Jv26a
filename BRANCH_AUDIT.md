@@ -21,6 +21,15 @@
 The branch links in README.md use the final names. The original names are
 recorded here so the provenance of each experiment remains inspectable.
 
+## Published tips
+
+| Final branch | Published tip |
+|---|---|
+| main | 1870d005e6ee7e52d59a9ddca2688f0a14367c58 |
+| evidence/synthetic-claims-1-2-4 | 362422b0adcc5986a9c82b0a5822f70a9a0c74b7 |
+| evidence/claim-3-real-world | 036fe96e5e26aaee6264d9f5509658a39c481e0d |
+| evidence/claim-5-localized-cp | 64a4a75aad0695fcf2cccecfeca4c4652b010a96 |
+
 ## Branch contents
 
 - main contains the combined source, outputs, report, scope ledger, citation,
