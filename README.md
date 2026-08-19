@@ -123,6 +123,12 @@ uv run python repro/src/verify_localized_pt_equivalence.py
 uv run python repro/src/audit_localized_pt_equivalence.py
 ~~~
 
+The lightweight publication-state check is:
+
+~~~bash
+python3 verify_final.py
+~~~
+
 ## Repository layout
 
 - repro/src/pt_core.py — clean-room synthetic PT/VCP implementation.
@@ -134,6 +140,9 @@ uv run python repro/src/audit_localized_pt_equivalence.py
 - reference/upstream/ — small pinned source snapshots and historical CSVs.
 - CLAIM_EVIDENCE.md — claim-by-claim evidence ledger.
 - SOURCE_MANIFEST.md — provenance and input inventory.
+- REPORT.md, claims.json, and reproduction_verdicts.json — final scoped verdict and machine-readable claim records.
+- AUTONOMOUS_STATE.json and EVIDENCE_MANIFEST.json — durable checkpoint and hash-bound publication surface.
+- verify_final.py — top-level branch, identity, evidence, and inner-verifier gate.
 - CITATION.cff — software and paper citation metadata.
 
 ## Citation

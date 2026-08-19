@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "repository": "MachineLearning-Nerd/icml26-conformal-prediction-coverage-length",
+  "paper": {
+    "title": "Questioning the Coverage-Length Metric in Conformal Prediction: When Shorter Intervals Are Not Better",
+    "arxiv": "2601.21455v2",
+    "openreview": "r3h23Jv26a",
+    "authors": ["Yizhou Min", "Yizhou Lu", "Lanqi Li", "Zhen Zhang", "Jiaye Teng"]
+  },
+  "overall_verdict": "PARTIAL_REPRODUCTION",
+  "publication_allowed": false,
+  "claims": [
+    {
+      "id": "C1",
+      "paper_claim": "The Prejudicial Trick can shorten intervals while retaining marginal coverage.",
+      "status": "VERIFIED_SCOPED",
+      "production_path": "repro/src/pt_core.py -> repro/src/claims_synthetic.py -> repro/verify_full_synthetic.py",
+      "scope": "100 finite source-protocol rows across five seeds, four alpha values, and five p values; 16/16 nontrivial conditions shorter.",
+      "evidence": ["outputs/claims_synthetic.json", "outputs/full_synthetic_summary.json", "outputs/independent_verification.json"]
+    },
+    {
+      "id": "C2",
+      "paper_claim": "Table 1 synthetic values and source protocol are reproduced.",
+      "status": "PARTIAL_SOURCE_ARTIFACT_AUDIT",
+      "production_path": "repro/run_full_source_synthetic.py -> reference/upstream/table1_source_bias10.csv comparison",
+      "scope": "Current author snapshot matches the clean-room output; bias-10 matches historical CSV to 7.1e-15, while the paper's p=0.96 PT value differs.",
+      "evidence": ["outputs/full_synthetic_summary.json", "reference/upstream/table1_source_bias10.csv"]
+    },
+    {
+      "id": "C3",
+      "paper_claim": "The real-world regression comparison shows the PT length effect.",
+      "status": "PARTIAL_EXTERNAL_DATA_AUDIT",
+      "production_path": "repro/src/real_datasets.py -> repro/src/claim3_real_world.py",
+      "scope": "Seven obtainable UCI datasets ran, including three paper datasets; unavailable datasets and checkpoints are not substituted.",
+      "evidence": ["outputs/claim3_real_world.json"]
+    },
+    {
+      "id": "C4",
+      "paper_claim": "PT interval instability is exposed by repeated runs and p=1 is a deterministic control.",
+      "status": "VERIFIED_SCOPED",
+      "production_path": "repro/src/claims_synthetic.py -> repro/verify_full_synthetic.py",
+      "scope": "80 positive-stability p<1 rows and 20 deterministic p=1 controls; independent false-positive and false-negative counts are zero.",
+      "evidence": ["outputs/independent_verification.json", "reference/upstream/table3_interval_stability.csv"]
+    },
+    {
+      "id": "C5",
+      "paper_claim": "Localized conformal prediction contains the PT extreme case.",
+      "status": "VERIFIED_SCOPED",
+      "production_path": "repro/src/verify_localized_pt_equivalence.py -> repro/src/audit_localized_pt_equivalence.py",
+      "scope": "15 conditions, 1,500,000 retrainings, zero samplewise interval mismatches, and a passing p=1 control.",
+      "evidence": ["outputs/localized_pt_equivalence.json", "outputs/localized_pt_equivalence_audit.json"]
+    },
+    {
+      "id": "C6",
+      "paper_claim": "A trained local-scale estimator demonstrates the broader instability mechanism.",
+      "status": "SIMULATION_CHECK_SCOPED",
+      "production_path": "repro/src/claim5_localized_cp.py",
+      "scope": "Three seeds and 20 retrains per seed; mean localized IS 0.05465, VCP IS 0, and mean localized coverage 0.90625.",
+      "evidence": ["outputs/claim5_localized_cp.json"]
+    }
+  ],
+  "limitations": [
+    "Finite checks do not prove the paper's theorem or exchangeability assumptions.",
+    "The full Section 4/5 dataset, classification, ablation, and checkpoint suite is not reproduced.",
+    "The Table 1 p=0.96 discrepancy and bias-20 source drift are retained as audit results.",
+    "No official score or author endorsement is claimed."
+  ]
+}

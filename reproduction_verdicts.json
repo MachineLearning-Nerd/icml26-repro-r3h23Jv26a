@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "repository": "MachineLearning-Nerd/icml26-conformal-prediction-coverage-length",
+  "paper": {
+    "title": "Questioning the Coverage-Length Metric in Conformal Prediction: When Shorter Intervals Are Not Better",
+    "arxiv": "2601.21455v2",
+    "openreview": "r3h23Jv26a"
+  },
+  "overall_verdict": "PARTIAL_REPRODUCTION",
+  "publication_allowed": false,
+  "claims": [
+    {"id": "C1", "status": "VERIFIED_SCOPED", "scope": "Finite synthetic PT mechanism: 100 rows, 16/16 nontrivial shorter conditions, maximum aggregate coverage error 0.013."},
+    {"id": "C2", "status": "PARTIAL_SOURCE_ARTIFACT_AUDIT", "scope": "Current source matches clean-room output and bias-10 historical CSV, but the paper's p=0.96 PT value is not exact."},
+    {"id": "C3", "status": "PARTIAL_EXTERNAL_DATA_AUDIT", "scope": "Seven obtainable UCI regressions ran; unavailable datasets and checkpoints are not represented as reruns."},
+    {"id": "C4", "status": "VERIFIED_SCOPED", "scope": "Synthetic PT instability and p=1 controls pass independent checks."},
+    {"id": "C5", "status": "VERIFIED_SCOPED", "scope": "Constructive localized-CP extreme case passes 15 conditions and 1,500,000 retrainings with zero mismatches."},
+    {"id": "C6", "status": "SIMULATION_CHECK_SCOPED", "scope": "Trained-localizer diagnostic is recorded without making a universal instability claim."}
+  ],
+  "limitations": [
+    "No theorem proof, complete paper-wide dataset/checkpoint reproduction, external score, or author endorsement is claimed.",
+    "The expensive producer suite is represented by committed evidence during final-state verification."
+  ]
+}
